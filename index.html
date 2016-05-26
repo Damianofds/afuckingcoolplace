@@ -51,11 +51,20 @@
 			jQuery("#fuckingCoolShdwText").fitText(1.3);
 			// replace "toner" here with "terrain" or "watercolor"
 			var layer = new L.StamenTileLayer("toner");
+			
+			var mura = L.tileLayer.wms("http://107.170.66.191/geoserver/wms", {
+				layers: "it.geosolutions:mura",
+				format: "image/png",
+				transparent: "true",
+				attribution: "fatto da fds, fanne quel che ti pare "
+			});
+			
 			var map = new L.Map("map", {
 				center: new L.LatLng(43.845000, 10.507736),
 				zoom: 15
 			});
 			map.addLayer(layer);
+			map.addLayer(mura);
 			}
 		 </script>
 	</head>
